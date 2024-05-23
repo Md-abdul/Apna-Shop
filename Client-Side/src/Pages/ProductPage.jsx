@@ -102,7 +102,7 @@ export const ProductPage = () => {
     <>
       <div className="flex flex-col md:flex-row gap-2">
         {/* Filters */}
-        <div className="md:w-1/6 bg-gray-200 p-4 hidden lg:block sticky top-0">
+        <div className="md:w-1/6 bg-gray-200 p-4 hidden lg:block sticky top-0 h-screen overflow-y-auto z-30">
           <div className="sticky top-0">
             <h2 className="mt-10 text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
               Filters

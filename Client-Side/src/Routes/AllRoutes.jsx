@@ -19,6 +19,8 @@ import { AllUserAcc } from "../Admin/AllUserAcc";
 import { MainAdmin } from "../Admin/MainAdmin";
 import { SalesAnalysis } from "../Admin/SalesAnalysis";
 import { CourierPartner } from "../Admin/CourierPartner";
+import PaymentForm from "../Pages/PaymentForm";
+import { PaymentDone } from "../Pages/PaymentDone";
 export const AllRoutes = () => {
   return (
     <>
@@ -30,6 +32,8 @@ export const AllRoutes = () => {
         <Route path="/singleproduct/:_id" element={<SingleProduct />} />
         <Route path="/homecontainer" element={<HomeContainer />} />
         <Route path="/carousel360" element={<Carousel360 />} />
+        <Route path="/paymentpage" element={<PaymentForm/>}/>
+        <Route path="/paymentdone" element={<PaymentDone/>}/>
         <Route
           path="/cartpage"
           element={

@@ -5,26 +5,26 @@ import {HomeContainer} from "./HomeContainer"
 import Carousel360 from "./Carousel360";
 import MainSliderCard from "../Components/MainSliderCard";
 import { Testimonial } from "./Testimonial";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
 
 export const Home = () => {
-  const [refreshed, setRefreshed] = useState(false);
+  // const [refreshed, setRefreshed] = useState(false);
 
-  useEffect(() => {
-    const handleClick = () => {
-      if (!refreshed) {
-        window.location.reload(); // Refresh the page
-        setRefreshed(true); // Update state to indicate that the page has been refreshed
-      }
-    };
+  // useEffect(() => {
+  //   const handleClick = () => {
+  //     if (!refreshed) {
+  //       window.location.reload(); // Refresh the page
+  //       setRefreshed(true); // Update state to indicate that the page has been refreshed
+  //     }
+  //   };
 
-    document.addEventListener("click", handleClick);
+  //   document.addEventListener("click", handleClick);
 
-    return () => {
-      document.removeEventListener("click", handleClick); // Remove event listener on component unmount
-    };
-  }, [refreshed]);
+  //   return () => {
+  //     document.removeEventListener("click", handleClick); // Remove event listener on component unmount
+  //   };
+  // }, [refreshed]);
 
   return (
     <>

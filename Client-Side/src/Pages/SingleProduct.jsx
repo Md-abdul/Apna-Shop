@@ -184,6 +184,7 @@ export const SingleProduct = () => {
 
       <div>
         <h1
+        className="mt-7 mb-5"
           style={{
             display: "flex",
             justifyContent: "center",
@@ -191,8 +192,9 @@ export const SingleProduct = () => {
             fontSize: "30px",
             fontWeight: "60",
           }}
+          
         >
-          Some Recomended Product
+          Some Recommended Product
         </h1>
         <Carousel360 />
       </div>

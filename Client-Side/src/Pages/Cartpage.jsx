@@ -4,8 +4,9 @@ import { deleteProducts, getToCart } from "../Redux/action";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { PiShoppingCartBold } from "react-icons/pi";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 
 export const Cartpage = () => {
   const { cartItems, loading, error } = useSelector((store) => ({
@@ -17,10 +18,18 @@ export const Cartpage = () => {
     isAuth: store.UsersReducer.isAuth,
   }));
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  // useEffect(() => {
+  //   dispatch(getToCart());
+  // }, [dispatch,isAuth]);
 
   useEffect(() => {
-    dispatch(getToCart());
-  }, [dispatch,isAuth]);
+    if(isAuth){
+      dispatch(getToCart())
+    }else{
+      navigate('/login')
+    }
+  }, [dispatch, isAuth, navigate])
 
   // Initialize quantities state
   const [quantities, setQuantities] = useState({});
@@ -62,9 +71,13 @@ export const Cartpage = () => {
     });
     dispatch(deleteProducts(itemId)).then(() => {
       dispatch(getToCart());
-      toast.success('Product removed from cart')
     });
+    toast.success('Product removed from cart')
   };
+
+  const handelChekout = () => {
+    navigate('/paymentpage')
+  }
 
   return (
     <div className="container mx-auto lg:w-[80rem]">
@@ -177,13 +190,15 @@ export const Cartpage = () => {
                   )}
                 </p>
               </div>
-              <button className="bg-blue-500 text-white px-4 py-2">
+              <button className="bg-blue-500 text-white px-4 py-2" onClick={handelChekout}>
                 Checkout
               </button>
+              {/* //paymentpage */}
             </div>
           </div>
         </div>
       )}
+      <ToastContainer/>
     </div>
   );
 };

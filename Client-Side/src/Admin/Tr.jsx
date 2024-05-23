@@ -1,39 +1,4 @@
 
-// // export const Tr = () => {
-// //   return (
-// //     <div>Tr</div>
-// //   )
-// // }
-
-// import { Chart } from "react-google-charts";
-
-// export const data = [
-//   ["Product", "quentity"],
-//   ["Mens", 20],
-//   ["Womens", 15],
-//   ["Electronics", 10],
-//   ["Bootom Wears", 7],
-//   ["others", 2],
-// ];
-
-// export const options = {
-//   title: "Total Product anaylish",
-//   is3D: true,
-// };
-
-// export const Tr = () => {
-//   return (
-//     <Chart
-//       chartType="PieChart"
-//       data={data}
-//       options={options}
-//       width={"100%"}
-//       height={"400px"}
-//     />
-//   );
-// }
-
-
 
 import  { useState, useEffect } from "react";
 import { Chart } from "react-google-charts";
