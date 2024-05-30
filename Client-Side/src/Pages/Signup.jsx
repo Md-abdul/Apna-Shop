@@ -3,8 +3,9 @@ import { useDispatch } from "react-redux";
 import { register } from "../Redux/users/action";
 import { ToastContainer, toast } from "react-toastify"; // Import toast and ToastContainer
 import "react-toastify/dist/ReactToastify.css";
-// import { Toast } from "./Toast";
+import { useNavigate } from "react-router-dom"; // import { Toast } from "./Toast";
 export const Signup = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     name: "",
@@ -16,12 +17,15 @@ export const Signup = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handelSubmit = async(e) => {
-    e.preventDefault(); 
+  const handelSubmit = async (e) => {
+    e.preventDefault();
     try {
       await dispatch(register(formData));
-      toast.success("User registered successfully!"); // Display success toast
+      toast.success("User registered successfully!", {
+        onClose: () => navigate("/login"),
+      }); // Display success toast
       setFormData({ name: "", email: "", password: "" });
+      
     } catch (error) {
       toast.error(`Error: ${error.message}`); // Display error toast
     }
@@ -29,7 +33,7 @@ export const Signup = () => {
 
   return (
     <>
-    {/* <Toast/> */}
+      {/* <Toast/> */}
       <section className="bg-gray-50 dark:bg-gray-900">
         <div className="flex flex-col md:flex-row items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
           {/* Image Section */}

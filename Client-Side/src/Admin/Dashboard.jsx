@@ -1,28 +1,10 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { RiLogoutBoxRLine } from "react-icons/ri";
 import { ToastContainer, toast } from "react-toastify";
-// import { useEffect, useState } from "react";
-// import HomeAdmin from "./HomeAdmin";
 export const Dashboard = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // const [refreshed, setRefreshed] = useState(false);
-
-  // useEffect(() => {
-  //   const handleClick = () => {
-  //     if (!refreshed) {
-  //       window.location.reload(); // Refresh the page
-  //       setRefreshed(true); // Update state to indicate that the page has been refreshed
-  //     }
-  //   };
-
-  //   document.addEventListener("click", handleClick);
-
-  //   return () => {
-  //     document.removeEventListener("click", handleClick); // Remove event listener on component unmount
-  //   };
-  // }, [refreshed]);
 
 
   const handleLogout = async () => {
@@ -66,7 +48,7 @@ export const Dashboard = () => {
       </button>
       {/* backgroundImage: 'linear-gradient(135deg, #667eea, #764ba2)',  */}
       <div
-        style={{ color: "#43C6DB", backgroundColor: "#4e4c4c" }}
+        style={{ color: "#2d87b4", backgroundColor: "#020303" }}
         id="docs-sidebar"
         className="hs-overlay [--auto-close:lg] hs-overlay-open:translate-x-0 -translate-x-full transition-all duration-300 transform hidden fixed top-0 start-0 bottom-0 z-[60] w-64 bg-white border-e border-gray-200 pt-7 pb-10 overflow-y-auto lg:block lg:translate-x-0 lg:end-auto lg:bottom-0 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 bgGri"
       >

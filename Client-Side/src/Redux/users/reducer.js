@@ -21,16 +21,20 @@ export const reducer = (state = initalState, { type, payload }) => {
     case SIGNUP_REQUEST: {
       return { ...state, isLoading: true, isError: false };
     }
-    case LOGIN_SUCCESS:
-    case SIGNUP_SUCCESS: {
+    case LOGIN_SUCCESS: {
       return { ...state, isLoading: false, isAuth: true, token: payload };
     }
+
+    case SIGNUP_SUCCESS: {
+      return {...state, isLoading:false, isAuth: false};
+    }
+
     case LOGIN_ERROR:
     case SIGNUP_ERROR: {
       return { ...state, isLoading: false, isError: true };
     }
     case LOGOUT: {
-      return {...initalState};
+      return { ...initalState };
     }
     default: {
       return state;

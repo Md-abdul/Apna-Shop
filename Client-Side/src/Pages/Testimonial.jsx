@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import "../Custome-Style/testimonial.css"
 export const Testimonial = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
