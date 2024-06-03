@@ -54,6 +54,12 @@ const connect = async () => {
   }
 };
 
+// Welcome route
+app.get('/', (req, res) => {
+  res.send('Welcome to Apna Shop!');
+});
+
+
 app.use("/user", userRoute);
 app.use("/cart", cartRoutes);
 app.use("/product", productRoutes);
