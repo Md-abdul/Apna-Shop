@@ -11,11 +11,11 @@ import {
   PRODUCT_SUCCESS,
   PRODUCT_UPDATE,
 } from "./actionType";
-//        http://localhost:3001/All_Products   http://localhost:2000/product/productget
+
 export const getData = (obj) => (dispatch) => {
   dispatch({ type: PRODUCT_REQUEST });
   axios
-    .get(`http://localhost:2000/product/productget`, obj)
+    .get(`http://localhost:4000/product/productget`, obj)
     .then((res) => {
       dispatch({ type: PRODUCT_SUCCESS, payload: res.data });
     })
@@ -27,7 +27,7 @@ export const getData = (obj) => (dispatch) => {
 export const PostProductData = (newData) => (dispatch) => {
   dispatch({ type: PRODUCT_REQUEST });
   axios
-    .post(`http://localhost:2000/product/productget`, newData)
+    .post(`http://localhost:4000/product/productget`, newData)
     .then((res) => {
       dispatch({ type: PRODUCT_POST, payload: res.data });
     })
@@ -39,7 +39,7 @@ export const PostProductData = (newData) => (dispatch) => {
 export const UpdataProductData = (_id, updatedata) => (dispatch) => {
   dispatch({ type: PRODUCT_REQUEST });
   axios
-    .put(`http://localhost:2000/product/productupdate/${_id}`, updatedata)
+    .put(`http://localhost:4000/product/productupdate/${_id}`, updatedata)
     .then(() => {
       dispatch({ type: PRODUCT_UPDATE });
     })
@@ -51,7 +51,7 @@ export const UpdataProductData = (_id, updatedata) => (dispatch) => {
 export const DeleteProductData = (id) => (dispatch) => {
   dispatch({ type: PRODUCT_REQUEST });
   axios
-    .delete(`http://localhost:2000/product/productdelete/${id}`)
+    .delete(`http://localhost:4000/product/productdelete/${id}`)
     .then(() => {
       dispatch({ type: PRODUCT_DELETE });
     })
@@ -65,7 +65,7 @@ export const DeleteProductData = (id) => (dispatch) => {
 export const addToCart = (productData) => (dispatch) => {
   dispatch({ type: PRODUCT_REQUEST });
   axios
-    .post(`http://localhost:2000/cart/cartpost`, productData)
+    .post(`http://localhost:4000/cart/cartpost`, productData)
     .then((res) => {
       dispatch({ type: ADD_TO_CART_SUCCESS, payload: res.data });
     })
@@ -78,7 +78,7 @@ export const getToCart = () => {
   return (dispatch) => {
     dispatch({ type: PRODUCT_REQUEST });
     axios
-      .get(`http://localhost:2000/cart/cartget`)
+      .get(`http://localhost:4000/cart/cartget`)
       .then((res) => {
         dispatch({ type: GET_TO_CART_SUCCESS, payload: res.data });
       })
@@ -91,7 +91,7 @@ export const getToCart = () => {
 export const deleteProducts = (_id) => (dispatch) => {
   dispatch({ type: PRODUCT_REQUEST });
   return axios
-    .delete(`http://localhost:2000/cart/cartdelete/${_id}`)
+    .delete(`http://localhost:4000/cart/cartdelete/${_id}`)
     .then(() => {
       dispatch({ type: DELETE_TO_CART_SUCCESS });
     })

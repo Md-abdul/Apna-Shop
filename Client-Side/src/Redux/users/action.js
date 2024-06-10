@@ -1,7 +1,3 @@
-
-
-
-
 import axios from "axios";
 import {
   LOGIN_ERROR,
@@ -13,17 +9,16 @@ import {
   SIGNUP_SUCCESS,
 } from "./actionType";
 
-
 export const signIn = (userData) => async (dispatch) => {
   dispatch({ type: LOGIN_REQUEST });
   try {
     const response = await axios.post(
-      "http://localhost:2000/user/login",
+      "http://localhost:4000/user/login",
       userData
     );
     const token = response.data.token;
     dispatch({ type: LOGIN_SUCCESS, payload: token });
-    localStorage.setItem('token', token);
+    localStorage.setItem("token", token);
     return true; // Return true indicating successful login
   } catch (error) {
     console.error("Sign In Error:", error);
@@ -32,14 +27,10 @@ export const signIn = (userData) => async (dispatch) => {
   }
 };
 
-
 export const register = (formData) => (dispatch) => {
   dispatch({ type: SIGNUP_REQUEST });
   axios
-    .post(
-      "http://localhost:2000/user/signup",
-      formData
-    )
+    .post("http://localhost:4000/user/signup", formData)
     .then((res) => {
       const token = res.data.token;
       dispatch({ type: SIGNUP_SUCCESS, payload: token });
@@ -51,6 +42,6 @@ export const register = (formData) => (dispatch) => {
 };
 
 export const LogoutUsers = () => (dispatch) => {
-  localStorage.removeItem('token');
-  dispatch({type:LOGOUT});
+  localStorage.removeItem("token");
+  dispatch({ type: LOGOUT });
 };
