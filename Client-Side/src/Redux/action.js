@@ -15,7 +15,7 @@ import {
 export const getData = (obj) => (dispatch) => {
   dispatch({ type: PRODUCT_REQUEST });
   axios
-    .get(`http://localhost:2000/product/productget`,obj)
+    .get(`http://localhost:2000/product/productget`, obj)
     .then((res) => {
       dispatch({ type: PRODUCT_SUCCESS, payload: res.data });
     })
@@ -24,51 +24,41 @@ export const getData = (obj) => (dispatch) => {
     });
 };
 
-// export const getData = (obj) => (dispatch) => {
-//   dispatch({ type: PRODUCT_REQUEST });
-//   axios
-//     .get(`http://localhost:2000/product/productget`,obj)
-//     .then((res) => {
-//       dispatch({ type: PRODUCT_SUCCESS, payload: res.data });
-//     })
-//     .catch(() => {
-//       dispatch({ type: PRODUCT_ERROR });
-//     });
-// };
-
 export const PostProductData = (newData) => (dispatch) => {
-  dispatch({type: PRODUCT_REQUEST})
-  axios.post(`http://localhost:2000/product/productpost`, newData)
-  .then((res) => {
-    dispatch({type: PRODUCT_POST, payload: res.data})
-  })
-  .catch(() => {
-    dispatch({type: PRODUCT_ERROR})
-  })
-}
+  dispatch({ type: PRODUCT_REQUEST });
+  axios
+    .post(`http://localhost:2000/product/productget`, newData)
+    .then((res) => {
+      dispatch({ type: PRODUCT_POST, payload: res.data });
+    })
+    .catch(() => {
+      dispatch({ type: PRODUCT_ERROR });
+    });
+};
 
-export const UpdataProductData = (_id,updatedata) => (dispatch) => {
-  dispatch({type: PRODUCT_REQUEST})
-  axios.put(`http://localhost:2000/product/productupdate/${_id}`,updatedata)
-  .then(() => {
-    dispatch({type: PRODUCT_UPDATE})
-  })
-  .catch(() => {
-    dispatch({type: PRODUCT_ERROR})
-  })
-}
+export const UpdataProductData = (_id, updatedata) => (dispatch) => {
+  dispatch({ type: PRODUCT_REQUEST });
+  axios
+    .put(`http://localhost:2000/product/productupdate/${_id}`, updatedata)
+    .then(() => {
+      dispatch({ type: PRODUCT_UPDATE });
+    })
+    .catch(() => {
+      dispatch({ type: PRODUCT_ERROR });
+    });
+};
 
 export const DeleteProductData = (id) => (dispatch) => {
-  dispatch({type: PRODUCT_REQUEST})
-  axios.delete(`http://localhost:2000/product/productdelete/${id}`)
-  .then(() => {
-    dispatch({type: PRODUCT_DELETE})
-  })
-  .catch(() => {
-    dispatch({type: PRODUCT_ERROR})
-  })
-}
-
+  dispatch({ type: PRODUCT_REQUEST });
+  axios
+    .delete(`http://localhost:2000/product/productdelete/${id}`)
+    .then(() => {
+      dispatch({ type: PRODUCT_DELETE });
+    })
+    .catch(() => {
+      dispatch({ type: PRODUCT_ERROR });
+    });
+};
 
 // =========================== FOR CART PAGE WORD==================
 
@@ -84,34 +74,31 @@ export const addToCart = (productData) => (dispatch) => {
     });
 };
 
-
-
 export const getToCart = () => {
-    return (dispatch) => {
-      dispatch({ type: PRODUCT_REQUEST });
-      axios
-        .get(`http://localhost:2000/cart/cartget`)
-        .then((res) => {
-          dispatch({ type: GET_TO_CART_SUCCESS, payload: res.data });
-        })
-        .catch(() => {
-          dispatch({ type: PRODUCT_ERROR });
-        });
-    };
-  };
-
-
-  export const deleteProducts = (_id) => (dispatch) => {
+  return (dispatch) => {
     dispatch({ type: PRODUCT_REQUEST });
-    return axios
-      .delete(`http://localhost:2000/cart/cartdelete/${_id}`)
-      .then(() => {
-        dispatch({ type: DELETE_TO_CART_SUCCESS});
+    axios
+      .get(`http://localhost:2000/cart/cartget`)
+      .then((res) => {
+        dispatch({ type: GET_TO_CART_SUCCESS, payload: res.data });
       })
       .catch(() => {
         dispatch({ type: PRODUCT_ERROR });
       });
   };
+};
+
+export const deleteProducts = (_id) => (dispatch) => {
+  dispatch({ type: PRODUCT_REQUEST });
+  return axios
+    .delete(`http://localhost:2000/cart/cartdelete/${_id}`)
+    .then(() => {
+      dispatch({ type: DELETE_TO_CART_SUCCESS });
+    })
+    .catch(() => {
+      dispatch({ type: PRODUCT_ERROR });
+    });
+};
 
 //http://localhost:2000/cart/cartpost
 //http://localhost:2000/cart/cartdelete/

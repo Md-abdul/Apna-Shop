@@ -14,46 +14,6 @@ import {
 } from "./actionType";
 
 
-// export const signIn = (userData) => (dispatch) => {
-//   dispatch({ type: LOGIN_REQUEST });
-//   axios
-//     .post(
-//       "http://localhost:2000/user/login",
-//       userData
-//     )
-//     .then((res) => {
-//       const token = res.data.token; 
-//       dispatch({ type: LOGIN_SUCCESS, payload: token }); 
-//       localStorage.setItem('token', token); 
-//     })
-//     .catch((err) => {
-//       console.error("Sign In Error:", err);
-//       dispatch({ type: LOGIN_ERROR }); 
-//     });
-// };
-
-// export const signIn = (userData) => (dispatch) => {
-//   dispatch({ type: LOGIN_REQUEST });
-//   axios
-//     .post(
-//       "http://localhost:2000/user/login",
-//       userData
-//     )
-//     .then((res) => {
-//       const token = res.data.token; 
-//       dispatch({ type: LOGIN_SUCCESS, payload: token }); 
-//       localStorage.setItem('token', token); 
-//     })
-//     .catch((err) => {
-//       console.error("Sign In Error:", err);
-//       if (err.response) {
-//         console.log("Error Status:", err.response.status);
-//         console.log("Error Data:", err.response.data);
-//       }
-//       dispatch({ type: LOGIN_ERROR }); 
-//     });
-// };
-
 export const signIn = (userData) => async (dispatch) => {
   dispatch({ type: LOGIN_REQUEST });
   try {

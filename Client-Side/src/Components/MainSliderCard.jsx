@@ -1,56 +1,4 @@
-// // import React from "react";
-// import PropTypes from 'prop-types';
-// import Carousel from "react-multi-carousel";
-// import "react-multi-carousel/lib/styles.css";
-// import { productData, responsive } from "./Data";
-
-// const SliderCard = ({ url, name, price, description }) => {
-//   return (
-//     <div className="card bg-white shadow-lg rounded-lg overflow-hidden">
-//       <img className="w-full h-56 object-cover object-center" src={url} alt="product" />
-//       <div className="p-4">
-//         <h2 className="text-gray-900 font-semibold text-xl mb-2">{name}</h2>
-//         <p className="text-gray-700 text-base">{price}</p>
-//         <p className="text-gray-700 text-base">{description}</p>
-//       </div>
-//     </div>
-//   );
-// };
-
-// SliderCard.propTypes = {
-//   url: PropTypes.string.isRequired,
-//   name: PropTypes.string.isRequired,
-//   price: PropTypes.string.isRequired,
-//   description: PropTypes.string.isRequired
-// };
-
-// const MainSliderCard = () => {
-//   const products = productData.map((item) => (
-//     <SliderCard
-//       key={item.id}
-//       name={item.name}
-//       url={item.imageurl}
-//       price={item.price}
-//       description={item.description}
-//     />
-//   ));
-
-//   return (
-//     <div className="container mx-auto py-8">
-//       <h1 className="text-3xl font-bold mb-8">React Multi Carousel</h1>
-//       <Carousel showDots={true} responsive={responsive}>
-//         {products}
-//       </Carousel>
-//     </div>
-//   );
-// };
-
-// export default MainSliderCard;
-
-
-
-// import React from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { productData, responsive } from "./Data";
@@ -58,7 +6,11 @@ import { productData, responsive } from "./Data";
 const SliderCard = ({ url, name, price, description }) => {
   return (
     <div className="card bg-white shadow-lg rounded-lg overflow-hidden">
-      <img className="w-full h-56 object-cover object-center" src={url} alt="product" />
+      <img
+        className="w-full h-56 object-cover object-center"
+        src={url}
+        alt="product"
+      />
       <div className="p-4">
         <h2 className="text-gray-900 font-semibold text-xl mb-2">{name}</h2>
         <p className="text-gray-700 text-base">{price}</p>
@@ -72,7 +24,7 @@ SliderCard.propTypes = {
   url: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired
+  description: PropTypes.string.isRequired,
 };
 
 const MainSliderCard = () => {

@@ -60,53 +60,45 @@ const Carousel360 = () => {
     { width: 1200, itemsToShow: 5 },
   ];
   return (
-    // <>
-    // <div style={{border:'1px solid',width:'90%'}} >
-    //   <Carousel breakPoints={breakPoints} itemsToShow={4} enableAutoPlay={true}>
-    //     {products.map((product, index) => (
-    //       <div key={index} className="px-2">
-    //         {/* Replace this with your product component */}
-    //         <div className="bg-white rounded-lg shadow-md p-4">
-    //           <img
-    //             src={product.pic}
-    //             alt={product.name}
-    //             className="w-full mb-2"
-    //           />
-    //           <div className="text-sm text-gray-700">{product.title}</div>
-    //           <div className="text-xs text-gray-500">{product.price}</div>
-    //         </div>
-    //       </div>
-    //     ))}
-    //   </Carousel>
-    //   </div >
-    // </>
-
     <>
-  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-    <div style={{ width: '90%' }}>
-      <Carousel breakPoints={breakPoints} itemsToShow={4} enableAutoPlay={true}>
-        {products.map((product, index) => (
-          <div key={index} className="px-2">
-            {/* Replace this with your product component */}
-            <div className="bg-white rounded-lg shadow-md p-4" style={{boxShadow:'rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;'}}>
-              <img
-                src={product.pic}
-                alt={product.name}
-                className="w-full mb-2"
-              />
-              <div className="text-sm text-gray-700">{product.title}</div>
-              <div className="text-xs text-gray-500">{product.price}</div>
-            </div>
-          </div>
-        ))}
-      </Carousel>
-    </div>
-  </div>
-</>
-
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <div style={{ width: "90%" }}>
+          <Carousel
+            breakPoints={breakPoints}
+            itemsToShow={4}
+            enableAutoPlay={true}
+          >
+            {products.map((product, index) => (
+              <div key={index} className="px-2">
+                {/* Replace this with your product component */}
+                <div
+                  className="bg-white rounded-lg shadow-md p-4"
+                  style={{
+                    boxShadow:
+                      "rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;",
+                  }}
+                >
+                  <img
+                    src={product.pic}
+                    alt={product.name}
+                    className="w-full mb-2"
+                  />
+                  <div className="text-sm text-gray-700">{product.title}</div>
+                  <div className="text-xs text-gray-500">{product.price}</div>
+                </div>
+              </div>
+            ))}
+          </Carousel>
+        </div>
+      </div>
+    </>
   );
 };
 
 export default Carousel360;
-
-

@@ -27,9 +27,9 @@ app.get("/", (req, res) => {
   res.send("Welcome to Apna Shop!");
 });
 
-app.use("/api/user", userRoute);
-app.use("/api/cart", cartRoutes);
-app.use("/api/product", productRoutes);
+app.use("/user", userRoute);
+app.use("/cart", cartRoutes);
+app.use("/product", productRoutes);
 
 app.listen(2000, () => {
   connect();
