@@ -20,7 +20,7 @@ export const AllUserAcc = () => {
   const fetchUsers = () => {
     setLoading(true);
     axios
-      .get("http://localhost:2000/user/users")
+      .get("https://apna-shop-g83q.onrender.com/user/users")
       .then((response) => {
         setUsers(response.data);
       })
@@ -41,7 +41,7 @@ export const AllUserAcc = () => {
     setConfirmationPopup(false);
     setLoading(true);
     axios
-      .delete(`http://localhost:2000/user/users/${deleteUserId}`)
+      .delete(`https://apna-shop-g83q.onrender.com/user/users/${deleteUserId}`)
       .then(() => {
         // Remove the deleted user from the list
         setUsers(users.filter((user) => user._id !== deleteUserId));

@@ -13,7 +13,7 @@ export const signIn = (userData) => async (dispatch) => {
   dispatch({ type: LOGIN_REQUEST });
   try {
     const response = await axios.post(
-      "http://localhost:4000/user/login",
+      "https://apna-shop-g83q.onrender.com/user/login",
       userData
     );
     const token = response.data.token;
@@ -30,7 +30,7 @@ export const signIn = (userData) => async (dispatch) => {
 export const register = (formData) => (dispatch) => {
   dispatch({ type: SIGNUP_REQUEST });
   axios
-    .post("http://localhost:4000/user/signup", formData)
+    .post("https://apna-shop-g83q.onrender.com/user/signup", formData)
     .then((res) => {
       const token = res.data.token;
       dispatch({ type: SIGNUP_SUCCESS, payload: token });

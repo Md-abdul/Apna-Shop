@@ -12,7 +12,6 @@ import { Dashboard } from "../Admin/Dashboard";
 import { HomeAdmin } from "../Admin/HomeAdmin";
 import { AdminProduct } from "../Admin/AdminProduct";
 import { AdminProductCart } from "../Admin/AdminProductCart";
-import { UserAccount } from "../Admin/UserAccount";
 import { AdminEditProduct } from "../Admin/AdminEditProduct";
 import { AddProduct } from "../Admin/AddProduct";
 import { AllUserAcc } from "../Admin/AllUserAcc";
@@ -49,7 +48,6 @@ export const AllRoutes = () => {
         <Route path="/homeadmin" element={<HomeAdmin />} />
         <Route path="/adminproduct" element={<AdminProduct />} />
         <Route path="/adminproductcart" element={<AdminProductCart />} />
-        <Route path="/useraccount" element={<UserAccount />} />
         <Route path="/admineditproduct/:_id" element={<AdminEditProduct />} />
         <Route path="/addproduct" element={<AddProduct />} />
         <Route path="/alluseracc" element={<AllUserAcc />} />

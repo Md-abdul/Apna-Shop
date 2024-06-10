@@ -13,7 +13,7 @@ export const HomeAdmin = () => {
   useEffect(() => {
     // Fetch user count
     axios
-      .get("http://localhost:2000/user/users")
+      .get("https://apna-shop-g83q.onrender.com/user/users")
       .then((response) => {
         setUserCount(response.data.length);
       })
@@ -23,7 +23,7 @@ export const HomeAdmin = () => {
 
     // Fetch product count
     axios
-      .get("http://localhost:2000/product/productget")
+      .get("https://apna-shop-g83q.onrender.com/product/productget")
       .then((response) => {
         setProductCount(response.data.length);
       })
@@ -33,7 +33,7 @@ export const HomeAdmin = () => {
 
     // Fetch cart item count
     axios
-      .get("http://localhost:2000/cart/cartget")
+      .get("https://apna-shop-g83q.onrender.com/cart/cartget")
       .then((response) => {
         setCartItemCount(response.data.length);
       })

@@ -8,7 +8,7 @@ export const Tr = () => {
 
   useEffect(() => {
     // Fetch data from your API
-    fetch("http://localhost:2000/product/productget")
+    fetch("https://apna-shop-g83q.onrender.com/product/productget")
       .then((response) => response.json())
       .then((data) => {
         // Assuming your API response is in the format: [{ label: "Label", value: 10 }, ...]

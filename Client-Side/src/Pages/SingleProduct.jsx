@@ -20,7 +20,7 @@ export const SingleProduct = () => {
   
   // const { name, title, price, description } = props;
   useEffect(() => {
-    fetch(`http://localhost:2000/product/productget/${_id}`)
+    fetch(`https://apna-shop-g83q.onrender.com/product/productget/${_id}`)
       .then((response) => response.json())
       .then((data) => {
         setProduct(data);
