@@ -1,7 +1,9 @@
+
+
 import { useEffect, useState } from "react";
 import { IoMenu, IoClose } from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
-import { BiUserCircle } from "react-icons/bi";
+import { BiUserCircle, BiBell } from "react-icons/bi";
 import { PiShoppingCartThin } from "react-icons/pi";
 import { useDispatch, useSelector } from "react-redux";
 import { LogoutUsers } from "../Redux/users/action";
@@ -26,7 +28,7 @@ export const Navbar = () => {
     dispatch(LogoutUsers());
     localStorage.removeItem("token");
     toast.success("Logout success! Thanks for visiting", {
-      onClose: () => navigate("/login"), // Redirect after the toast is closed
+      onClose: () => navigate("/login"),
     });
   };
 
@@ -40,7 +42,7 @@ export const Navbar = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
-      dispatch({ type: "LOGIN_SUCCESS" }); // Assuming you have a LOGIN_SUCCESS action type
+      dispatch({ type: "LOGIN_SUCCESS" });
     }
   }, [dispatch]);
 
@@ -58,10 +60,61 @@ export const Navbar = () => {
           <div className="hidden md:flex items-center space-x-4">
             <Link
               to="/productpage"
-              className="text-gray-800 hover:text-gray-900"
+              className="px-5 py-2 rounded-md text-gray-800 hover:bg-gray-200 hover:text-gray-900"
             >
-              Products
+              <text-base fontFamily="Roboto" fontWeight={800}>
+                Products
+              </text-base>
             </Link>
+
+            <Link
+              to="/aboutus"
+              className="px-5 py-2 rounded-md text-gray-800 hover:bg-gray-200 hover:text-gray-900"
+            >
+              <text-base fontFamily="Roboto" fontWeight={800}>
+                About us
+              </text-base>
+            </Link>
+
+            <div className="relative group">
+              <Link
+                to="#"
+                className="px-5 py-2 rounded-md text-gray-800 hover:bg-gray-200 hover:text-gray-900"
+              >
+                <text-base fontFamily="Roboto" fontWeight={800}>
+                  More
+                </text-base>
+                <div className="absolute hidden group-hover:block mt-2 w-48 bg-white rounded-lg shadow-lg z-10">
+                  <Link
+                    to="/notification-preferences"
+                    className="block px-1 py-2 text-gray-800 hover:bg-gray-100"
+                  >
+                    <span className="flex items-center">
+                      <BiBell className="w-6 h-6 mr-2" />
+                      Notification Preferences
+                    </span>
+                  </Link>
+                  <Link
+                    to="/customer-care"
+                    className="block px-1 py-2 text-gray-800 hover:bg-gray-100"
+                  >
+                    <span className="flex items-center">
+                      <BiUserCircle className="w-6 h-6 mr-2" />
+                      24*7 Customer Care
+                    </span>
+                  </Link>
+                  <Link
+                    to="/download-app"
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+                  >
+                    <span className="flex items-center">
+                      <IoMenu className="w-6 h-6 mr-2" />
+                      Download App
+                    </span>
+                  </Link>
+                </div>
+              </Link>
+            </div>
             {auth ? (
               <button
                 className="bg-red-500 hover:bg-red-700 text-white rounded font-bold py-2 px-4"
@@ -95,44 +148,86 @@ export const Navbar = () => {
           </div>
         </div>
       </div>
+
       {isOpen && (
-        <div className="md:hidden px-4 pt-2 pb-3 space-y-1">
+  <div className="md:hidden px-4 pt-2 pb-3 space-y-1">
+    <Link
+      to="/productpage"
+      className="block px-3 py-2 text-gray-800 hover:text-gray-900"
+      onClick={toggleMenu}
+    >
+      Products
+    </Link>
+    <Link
+      to="/aboutus"
+      className="block px-3 py-2 text-gray-800 hover:text-gray-900"
+      onClick={toggleMenu}
+    >
+      About Us
+    </Link>
+    <div className="relative group">
+      <Link
+        to="#"
+        className="block px-3 py-2 text-gray-800 hover:text-gray-900"
+        onClick={toggleMenu}
+      >
+        More
+        <div className="absolute hidden group-hover:block mt-2 w-48 bg-white rounded-lg shadow-lg z-10">
           <Link
-            to="/productpage"
-            className="block px-3 py-2 text-gray-800 hover:text-gray-900"
-            onClick={toggleMenu}
+            to="/notification-preferences"
+            className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
           >
-            Products
+            <BiBell className="w-6 h-6 mr-2" />
+            Notification Preferences
           </Link>
-          {auth ? (
-            // <button
-            //   className="block w-full text-left px-3 py-2 text-red-500 hover:text-red-700"
-            //   onClick={() => {
-            //     logout();
-            //     toggleMenu();
-            //   }}
-            // >
-            //   Logout
-            // </button>
-            <button
-              className="bg-red-500 hover:bg-red-700 text-white rounded font-bold py-2 px-4"
-              onClick={logout}
-            >
-              Logout
-            </button>
-          ) : (
-            <Link to="/login" className="block" onClick={toggleMenu}>
-              <BiUserCircle className="w-6 h-6" />
-            </Link>
-          )}
-          <Link to="/cartpage" className="block relative" onClick={toggleMenu}>
-            <PiShoppingCartThin className="w-6 h-6" />
-            <span className="absolute top-0 right-0 bg-red-500 text-white rounded-full w-4 h-4 flex items-center justify-center text-xs">
-              {cartItems.length}
-            </span>
+          <Link
+            to="/customer-care"
+            className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+          >
+            <BiUserCircle className="w-6 h-6 mr-2" />
+            24*7 Customer Care
+          </Link>
+          <Link
+            to="/download-app"
+            className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+          >
+            <IoMenu className="w-6 h-6 mr-2" />
+            Download App
           </Link>
         </div>
-      )}
+      </Link>
+    </div>
+
+    {auth ? (
+      <button
+        className="bg-red-500 hover:bg-red-700 text-white rounded font-bold py-2 px-4 block"
+        onClick={logout}
+      >
+        Logout
+      </button>
+    ) : (
+      <Link
+        to="/login"
+        className="block px-3 py-2 text-gray-800 hover:text-gray-900"
+        onClick={toggleMenu}
+      >
+        <BiUserCircle className="w-6 h-6" />
+      </Link>
+    )}
+
+    <Link
+      to="/cartpage"
+      className="block px-3 py-2 text-gray-800 hover:text-gray-900 relative"
+      onClick={toggleMenu}
+    >
+      <PiShoppingCartThin className="w-6 h-6" />
+      <span className="absolute top-0 right-0 bg-red-500 text-white rounded-full w-4 h-4 flex items-center justify-center text-xs">
+        {cartItems.length}
+      </span>
+    </Link>
+  </div>
+)}
+
       <ToastContainer
         position="top-right"
         autoClose={5000}

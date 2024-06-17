@@ -1,4 +1,3 @@
-// import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
@@ -6,9 +5,6 @@ let data = [
   {
     image:
       "https://rukminim2.flixcart.com/fk-p-flap/1600/270/image/6a5b8fed4f67b691.jpg?q=20",
-  },
-  {
-    image: "https://rukminim2.flixcart.com/fk-p-flap/1600/270/image/6a5b8fed4f67b691.jpg?q=20",
   },
   {
     image:
@@ -22,7 +18,10 @@ let data = [
     image:
       "https://www.jiomart.com/images/cms/aw_rbslider/slides/1709486731_Top_Selling_Televisions__Desktop.jpg?im=Resize=(1680,320)",
   },
-  {image: "https://www.jiomart.com/images/cms/aw_rbslider/slides/1709659108_Top_Deals_Desktop.jpg?im=Resize=(1680,320)"}
+  {
+    image:
+      "https://www.jiomart.com/images/cms/aw_rbslider/slides/1709659108_Top_Deals_Desktop.jpg?im=Resize=(1680,320)",
+  },
 ];
 
 export const Slider = () => {
@@ -69,7 +68,7 @@ export const Slider = () => {
               <img
                 src={el.image}
                 alt={`Carousel Image ${index}`}
-                className="w-full h-auto rounded-lg sm:h-64 md:h-80 xl:h-112"
+                className="w-full h-auto rounded-lg sm:h-250 md:h-80 "
               />
             </div>
           ))}
